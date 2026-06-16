@@ -1,0 +1,4 @@
+interface:
+  display_name: "Spot Upset Value"
+  short_description: "Score upset value and fair odds for sports matchups."
+  default_prompt: "Use $spot-upset-value to analyze the supplied sports matchups for upset value, fair odds, market mispricing, and the strongest underdog opportunities."
