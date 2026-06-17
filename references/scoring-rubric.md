@@ -1,6 +1,16 @@
 # Upset Scoring Rubric
 
-Use this rubric to turn research into a 0-100 upset value score. The goal is to identify underdogs whose actual chance appears better than the market price, not merely long shots.
+Use this rubric to turn research into 0-100 upset scores. The goal is to identify underdogs whose actual chance appears better than the market price, not merely long shots. Keep likelihood, price value, and the final decision score separate.
+
+## Score Types
+
+| Score | Meaning |
+|---|---|
+| Likelihood score | How plausible the upset outcome is before price, based on matchup, state, and variance |
+| Value score | How much the offered price exceeds fair odds after uncertainty |
+| Overall upset score | Final rank score after evidence caps, favorite-strength caps, market confirmation, and risk checks |
+
+Use the score components below to build the Overall upset score. If Likelihood and Value disagree, explain the conflict instead of averaging it away.
 
 ## Score Components
 
@@ -11,6 +21,19 @@ Use this rubric to turn research into a 0-100 upset value score. The goal is to 
 | Underdog path | 0-20 | Home edge, tactical/style fit, defensive resilience, counterpunching, serve/pace/grappling edge |
 | Variance profile | 0-15 | Low-scoring sport, single-elimination, judging volatility, high 3-point variance, red-card/penalty risk |
 | Market heat signal | 0-15 | Public favorite steam, odds drop without line confirmation, narrative one-sidedness |
+
+## Favorite-Strength Caps
+
+Use these caps before giving a high Overall upset score:
+
+| Situation | Cap / action |
+|---|---|
+| No-vig favorite win probability is 60% or higher and no hard negative evidence exists | Cap underdog outright-win score at 60 |
+| No-vig favorite win probability is 60% or higher and Asian handicap/spread market does not confirm favorite weakness | Cap underdog outright-win score at 64 and cap confidence at Medium |
+| Favorite has elite finishing/creation talent available and no confirmed rotation | Do not reduce favorite win probability by more than 4 percentage points without hard negative evidence |
+| Hard negative evidence exists | Caps may be lifted only for the affected market; cite the evidence |
+
+Hard negative evidence means confirmed major absences, meaningful rotation, clear motivational downgrade, adverse rest/travel spot, or respected-market handicap movement against the favorite. Soft narratives such as "the favorite is popular", "the coach is conservative", "the underdog can counter", or "previous matches had upsets" are not enough by themselves.
 
 ## Evidence Quality Cap
 
@@ -44,6 +67,7 @@ Do not give positive points merely because data is abundant. Use data quality as
 - Fair odds are the inverse of the estimated probability. If estimated underdog probability is `0.286`, fair odds are `3.50`.
 - Show both probability edge and odds value edge. Probability edge is measured in percentage points; odds value edge is measured as a percentage return versus fair odds.
 - Do not adjust the no-vig probability by more than 15 percentage points in either direction without overwhelming, multi-source evidence. Most real edges are 2-8 percentage points.
+- For strong favorites above 60% no-vig win probability, most underdog outright-win edges should be 0-4 percentage points unless hard negative evidence exists. Move larger tournament-level variance first into draw, double chance, or handicap-cover markets.
 - Positive value exists only when market odds are meaningfully higher than fair odds after uncertainty. If the edge disappears inside the probability range, call it marginal or no value.
 
 ## Prediction-Market Cross-Check
@@ -73,6 +97,8 @@ Football/soccer:
 - Favorite only needs a draw, has congested schedule, rotates for cup/Europe, lacks ball-progressing midfielders, faces a low block or fast counter side.
 - Draw can be the best upset angle when the favorite is strong but lacks urgency.
 - Always evaluate the draw as its own upset angle in 1X2 markets, especially when the underdog win is too thin but the favorite's win probability looks overstated.
+- Do not generalize previous draw-heavy upset results into higher underdog-win probability. Use that signal to raise draw, double chance, or handicap-cover review priority unless the specific match has hard negative favorite evidence.
+- Confirm with Asian handicap or sharper spread markets before upgrading an outright underdog win against a strong favorite. A high 1X2 underdog price alone is not confirmation.
 
 Basketball:
 - Back-to-back, travel, rest disadvantage, injury to primary creator or rim protector, three-point volatility, pace mismatch, inflated public favorite.
@@ -94,4 +120,6 @@ UFC/MMA:
 - Double-counting the same signal, such as rotation and low motivation from the same cup context.
 - Giving high confidence when the market data is incomplete.
 - Reporting an odds value edge without also showing the probability edge.
+- Ranking by value score alone while ignoring a low likelihood score or an active favorite-strength cap.
+- Treating draw-heavy upset patterns as evidence that underdogs are more likely to win outright.
 - Forcing a pick when the honest answer is pass / no meaningful upset value.
