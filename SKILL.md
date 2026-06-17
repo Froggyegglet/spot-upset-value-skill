@@ -31,6 +31,7 @@ Explicitly state the timestamp of key data: odds snapshot time, injury report da
    - Tennis/UFC: analyze match winner, method/sets/rounds only when the user asks.
    - Multi-match requests: score every matchup and rank the strongest upset value.
    - Combined outcomes: when the user asks about "win or draw" or similar unions, use the quoted double chance odds if that is the target market, and cross-check it against the sum of the constituent 1X2 no-vig probabilities. If no double chance odds are available, estimate the union from the constituent no-vig probabilities and mark it as derived.
+   - Separate outright underdog wins from draw, double chance, and handicap-cover angles. A good draw or +handicap angle does not automatically make the underdog win a good angle.
 
 2. Convert market odds into probabilities.
    - Decimal odds implied probability: `p = 1 / odds`.
@@ -53,6 +54,9 @@ Explicitly state the timestamp of key data: odds snapshot time, injury report da
    - Never invent precision; prefer ranges when inputs are uncertain.
    - Do not adjust the no-vig probability by more than 15 percentage points in either direction unless there is overwhelming, multi-source evidence. Most plausible edges are 2-8 percentage points; be especially cautious when a long-shot probability would more than double.
    - If no-vig probability is incomplete, widen the model probability range by at least +/-5 percentage points, cap score at 59 per the rubric, cap confidence at Low-Medium, and avoid presenting odds value edge as precise.
+   - In football, do not convert a draw-heavy tournament trend into a higher outright underdog-win probability. Apply that trend first to draw, double chance, or handicap-cover angles.
+   - When the no-vig favorite win probability is 60% or higher, confirm with Asian handicap or sharper spread markets before calling the favorite fragile. If Asian handicap prices do not show favorite weakness, reduce confidence in any underdog-win edge.
+   - When the no-vig favorite win probability is 60% or higher and there is no hard negative evidence against the favorite, cap the underdog outright-win score at 60 and normally cap the underdog outright-win probability adjustment at +4 percentage points. Hard negative evidence means confirmed major absences, meaningful rotation, clear motivational downgrade, adverse rest/travel spot, or a respected-market handicap move against the favorite.
 
 5. Calculate fair odds and value gap.
    - Fair odds: `fair_odds = 1 / model_probability`.
@@ -64,6 +68,11 @@ Explicitly state the timestamp of key data: odds snapshot time, injury report da
    - Always use the detailed rubric in `references/scoring-rubric.md` to derive the upset score, including single-match requests.
    - Show a compact component breakdown or name the strongest score drivers so the score is auditable.
    - Do not assign a high score just because the underdog odds are large. High score requires both plausible upset path and market mispricing.
+   - Report three scores when possible:
+     - `Likelihood score`: how plausible the upset outcome is in football terms.
+     - `Value score`: how much the market price appears above fair odds.
+     - `Overall upset score`: the decision score after caps, evidence quality, and market confirmation.
+   - Rank by `Overall upset score`, not by raw odds value alone. If the value score is high but likelihood is weak or capped, say it is a price-only lean rather than the best upset.
 
 7. Produce a concise ranked report.
    - Show the strongest upset value first.
@@ -88,6 +97,9 @@ Fair odds: 3.33-3.57
 Probability edge: +3 to +5 percentage points
 Odds value edge: about +12% to +20%
 Upset score: 76/100
+Likelihood score: 68/100
+Value score: 80/100
+Overall upset score: 74/100
 Confidence: Medium
 Why it can upset: 3-5 evidence bullets
 Why it can fail: 2-3 risk bullets
